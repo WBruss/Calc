@@ -43,6 +43,14 @@ int product(int x, int y);
 int quotient(int x, int y);
 
 int main(int argc, char *argv[]){
+
+    //Checks if the required number of arguements is entered
+    if(argc < 4){
+        printf("Not enough arguements \n");
+        printf("Run the command. Enter two integers and an operator between them. \n \t eg. ./calc 1 + 1 \n");
+        return 1;
+    }
+    
     
     /*
     Variable declaration
@@ -52,22 +60,25 @@ int main(int argc, char *argv[]){
     int x = atoi(argv[1]); //Input coverted to integer
     int y = atoi(argv[3]); //Input coverted to integer
     int z = 0;
+    char *arg = argv[2];
     
+    
+    //printf("%d", argc);
     /*
     If statement compares the user entered  operator to select 
     the appropriate function
     */
 
-    if(!strcmp(argv[2], "+")){  //Calls the sum() function
+    if(!strcmp(arg, "+")){  //Calls the sum() function
         z = sum(x , y);
     }
-    else if(!strcmp(argv[2], "-")){  //Calls the difference() function
+    else if(!strcmp(arg, "-")){  //Calls the difference() function
         z = difference(x , y);
     }
-    else if(!strcmp(argv[2], "x")){  //Calls the product() function
+    else if(!strcmp(arg, "x")){  //Calls the product() function
         z = product(x , y);
     }
-    else if(!strcmp(argv[2], "/")){  //Calls the quotient() function
+    else if(!strcmp(arg, "/")){  //Calls the quotient() function
         z = quotient(x , y);
     }
     else
